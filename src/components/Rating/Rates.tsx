@@ -39,7 +39,7 @@ text-sm sm:text-base
 
 export function Rates({ min, max }: { min: number; max: number }) {
   const [rate, setRate] = useState(0);
-  const { setRate: onSubmit } = useContext(RatingContext);
+  const { onSubmit } = useContext(RatingContext);
   const array = Array.from({ length: max - min + 1 }, (_, i) => i + min);
 
   const handleSubmit = (evt: React.FormEvent<HTMLElement>) => {

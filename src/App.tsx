@@ -7,7 +7,7 @@ import ThankYou from '@components/ThankYou';
 
 interface Rating {
   rate: number;
-  setRate: Dispatch<number>;
+  onSubmit: Dispatch<number>;
 }
 
 export const RatingContext = createContext({} as Rating);
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <RatingContext.Provider value={{ rate, setRate }}>
+      <RatingContext.Provider value={{ rate, onSubmit: setRate }}>
         {!!rate ? <ThankYou /> : <Rating />}
       </RatingContext.Provider>
       <Footer name="Abian Izquierdo" web="https://www.abizmo.dev" />
