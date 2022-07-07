@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from 'react';
+import { RatingContext } from '../../App';
 
 function Rate({
   active,
@@ -13,14 +14,15 @@ function Rate({
     <label
       className={`${
         active
-          ? "bg-opacity-100"
-          : "bg-opacity-20 text-opacity-50 hover:text-opacity-100"
+          ? 'bg-opacity-100'
+          : 'bg-opacity-20 text-opacity-50 hover:text-opacity-100'
       }
   bg-rating-500
   hover:bg-accent
 text-rating-100
-w-10 rounded-full aspect-square grid place-content-center
+w-10 sm:w-12 rounded-full aspect-square grid place-content-center
 hover:cursor-pointer
+text-sm sm:text-base
 `}
     >
       <input
@@ -37,11 +39,12 @@ hover:cursor-pointer
 
 export function Rates({ min, max }: { min: number; max: number }) {
   const [rate, setRate] = useState(0);
+  const { setRate: onSubmit } = useContext(RatingContext);
   const array = Array.from({ length: max - min + 1 }, (_, i) => i + min);
 
   const handleSubmit = (evt: React.FormEvent<HTMLElement>) => {
     evt.preventDefault();
-    console.log(rate);
+    onSubmit(rate);
   };
 
   return (

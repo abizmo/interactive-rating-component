@@ -1,7 +1,8 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 
-import Container from "../common/Container";
-import { Rates } from "./Rates";
+import Container from '../common/Container';
+import { Text, Title } from '../common/Typo';
+import { Rates } from './Rates';
 
 function Rating() {
   return (
@@ -14,11 +15,11 @@ function Rating() {
           />
         </svg>
       </div>
-      <h1 className="text-xl font-bold">How did we do?</h1>
-      <p className="text-sm opacity-60">
+      <Title>How did we do?</Title>
+      <Text>
         Please let us know how we did with your support request. All feedback is
         appreciated to help us improve our offering!
-      </p>
+      </Text>
       <Rates min={1} max={5} />
     </Container>
   );
