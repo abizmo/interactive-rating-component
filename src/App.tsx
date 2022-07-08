@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <RatingContext.Provider value={{ rate, onSubmit: setRate }}>
-        {!!rate ? <ThankYou /> : <Rating />}
+        <main>{!!rate ? <ThankYou /> : <Rating />}</main>
       </RatingContext.Provider>
       <Footer name="Abian Izquierdo" web="https://www.abizmo.dev" />
     </>
